@@ -1,9 +1,138 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gifty</title>
+    <title>Гид Подарков — Найди идеальную идею</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="main-interface">
+      <header class="header">
+        <div class="container">
+          <h1 class="logo">🎁 ПодарокГид</h1>
+          <p class="tagline">
+            Генератор идей: найди идеальный подарок, а где купить — мы
+            подскажем!
+          </p>
+        </div>
+      </header>
+
+      <main class="main-content container">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('age')">
+            Искать по возрасту
+          </button>
+          <button class="tab-btn" onclick="switchTab('interests')">
+            Искать по интересам
+          </button>
+        </div>
+
+        <section id="age-section" class="filter-section active">
+          <h2>Выберите возраст:</h2>
+          <div class="grid-buttons">
+            <button
+              onclick="filterGifts('1-12-months', 'Подарки от 1 до 12 месяцев')"
+            >
+              1 - 12 месяцев
+            </button>
+            <button
+              onclick="filterGifts('1-5-years', 'Подарки от 1 года до 5 лет')"
+            >
+              1 - 5 лет
+            </button>
+            <button onclick="filterGifts('6-9-years', 'Подарки от 6 до 9 лет')">
+              6 - 9 лет
+            </button>
+            <button
+              onclick="filterGifts('10-13-years', 'Подарки от 10 до 13 лет')"
+            >
+              10 - 13 лет
+            </button>
+            <button
+              onclick="filterGifts('14-16-years', 'Подарки от 14 до 16 лет')"
+            >
+              14 - 16 лет
+            </button>
+            <button
+              onclick="filterGifts('17-20-years', 'Подарки от 17 до 20 лет')"
+            >
+              17 - 20 лет
+            </button>
+            <button
+              onclick="filterGifts('21-24-years', 'Подарки от 21 до 24 лет')"
+            >
+              21 - 24 года
+            </button>
+            <button
+              onclick="filterGifts('35-40-years', 'Подарки от 35 до 40 лет')"
+            >
+              35 - 40 лет
+            </button>
+            <button
+              onclick="filterGifts('40-45-years', 'Подарки от 40 до 45 лет')"
+            >
+              40 - 45 лет
+            </button>
+          </div>
+        </section>
+
+        <section id="interests-section" class="filter-section">
+          <h2>Выберите увлечение или хобби:</h2>
+          <div class="grid-buttons interests-grid">
+            <button
+              class="btn-retro"
+              onclick="filterGifts('retro', 'Антиквариат и старина')"
+            >
+              🏛 Антиквариат и старина
+            </button>
+            <button
+              class="btn-cars"
+              onclick="filterGifts('retro-cars', 'Ретро-авто и классика')"
+            >
+              🚗 Ретро-авто и классика
+            </button>
+            <button
+              class="btn-gaming"
+              onclick="filterGifts('gaming', 'Игровые штуки и гейминг')"
+            >
+              🎮 Игровые штуки и гейминг
+            </button>
+            <button
+              class="btn-fishing"
+              onclick="filterGifts('fishing', 'Рыбалка и охота')"
+            >
+              🎣 Рыбалка и охота
+            </button>
+            <button
+              class="btn-modern"
+              onclick="
+                filterGifts(
+                  'modern-collecting',
+                  'Современное коллекционирование',
+                )
+              "
+            >
+              🧸 Современное коллекционирование
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div
+      id="view-interface"
+      class="view-section container"
+      style="display: none"
+    >
+      <div class="view-header">
+        <button class="back-btn" onclick="goBack()">← Назад к поиску</button>
+        <h2 id="current-category-title">Название категории</h2>
+      </div>
+
+      <div id="gifts-container" class="gifts-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
